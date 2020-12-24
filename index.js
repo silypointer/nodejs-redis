@@ -21,9 +21,7 @@ async function getRepos(req, res, next) {
 
         // add into redis
         client.setex(username, 7200, repos);
-
         res.send(`${username} has repos: ${repos}`);
-
     } catch(error) {
         console.log("Error:" + error);
         res.status(500);
